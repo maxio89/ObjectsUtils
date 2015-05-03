@@ -39,8 +39,6 @@ public class CalculatorTest {
         }
     }
 
-    private Calculator<Drop> calculator = new Calculator<>();
-
 
     @Test
     public void sum_withListOfDrops_returnsOneBigDrop() {
@@ -49,7 +47,7 @@ public class CalculatorTest {
         final List<Drop> drops = Arrays.asList(new Drop(1), new Drop(10));
 
         //when
-        final Drop sum = calculator.sum(drops);
+        final Drop sum = Calculator.sum(drops);
 
         //then
         assertNotNull(sum);
@@ -64,7 +62,7 @@ public class CalculatorTest {
         final List<Drop> drops = Collections.singletonList(new Drop(1));
 
         //when
-        final Drop sum = calculator.sum(drops);
+        final Drop sum = Calculator.sum(drops);
 
         //then
         assertNotNull(sum);
@@ -79,7 +77,7 @@ public class CalculatorTest {
         final List<Drop> drops = Collections.emptyList();
 
         //when
-        final Drop sum = calculator.sum(drops);
+        final Drop sum = Calculator.sum(drops);
 
         //then
         assertNull(sum);
@@ -91,7 +89,7 @@ public class CalculatorTest {
         //given
 
         //when
-        calculator.sum(null);
+        Calculator.sum(null);
 
         //then
     }
@@ -108,7 +106,7 @@ public class CalculatorTest {
         when(drop1.add(any(Drop.class))).thenReturn(sumMock);
         when(drop2.add(any(Drop.class))).thenReturn(sumMock);
         //when
-        final Drop sum = calculator.sum(drops);
+        final Drop sum = Calculator.sum(drops);
 
         //then
         verify(drop1).add(Matchers.<Drop>eq(null));

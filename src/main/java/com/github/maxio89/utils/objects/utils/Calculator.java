@@ -3,8 +3,7 @@ package com.github.maxio89.utils.objects.utils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Calculator<T extends Summable<T>> {
-
+public class Calculator {
 
     /**
      * Method just sums a list of objects of type {@link Summable}.
@@ -14,7 +13,7 @@ public class Calculator<T extends Summable<T>> {
      * @throws IllegalArgumentException when given objects are null.
      */
     @Nullable
-    public T sum(@Nullable final List<T> objects) {
+    public static <T extends Summable<T>> T sum(@Nullable final List<T> objects) {
         if (null == objects) {
             throw new IllegalArgumentException("Ups, list of objects cannot be null!");
         }
