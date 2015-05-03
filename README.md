@@ -1,0 +1,4 @@
+###Run:
+```
+mvn clean install
+```
