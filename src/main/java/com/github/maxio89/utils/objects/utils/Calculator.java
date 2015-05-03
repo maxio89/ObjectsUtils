@@ -18,11 +18,7 @@ public class Calculator<T extends Summable<T>> {
         if (null == objects) {
             throw new IllegalArgumentException("Ups, list of objects cannot be null!");
         }
-        T resultObject = null;
-        for (T object : objects) {
-            resultObject = object.add(resultObject);
-        }
-        return resultObject;
+        return objects.stream().reduce(T::add).orElse(null);
     }
 
 

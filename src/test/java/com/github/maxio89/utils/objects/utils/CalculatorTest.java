@@ -2,7 +2,6 @@ package com.github.maxio89.utils.objects.utils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.annotation.Nonnull;
@@ -111,8 +110,8 @@ public class CalculatorTest {
         final Drop sum = calculator.sum(drops);
 
         //then
-        verify(drop1).add(Matchers.<Drop>eq(null));
-        verify(drop2).add(eq(sumMock));
+        verify(drop1).add(eq(drop2));
+        verify(drop2, never()).add(any(Drop.class));
         assertNotNull(sum);
         assertNotNull(sum.getSize());
         assertEquals(sumMock, sum);
